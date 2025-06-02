@@ -1,40 +1,130 @@
 /* Color Palette */
 :root {
-    --primary-color: #009688; /* Teal */
-    --secondary-color: #ff5722; /* Deep Orange */
-    --background-color: #f5f5f5; /* Light Grey */
-    --text-color: #212121; /* Dark Grey */
+    --color-primary: #1CA3EC;    /* Ocean Blue */
+    --color-secondary: #FF7F50;  /* Coral */
+    --color-background: #F5F5DC; /* Sand */
+    --color-success: #2E8B57;    /* Forest Green */
+    --color-text: #1B4965;       /* Dark Blue */
 }
 
-/* Typography */
-body {
-    font-family: 'Arial', sans-serif;
-    color: var(--text-color);
-    background-color: var(--background-color);
+/* Reset and Base Styles */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-h1, h2, h3 {
-    color: var(--primary-color);
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: var(--color-text);
+    background-color: var(--color-background);
 }
 
-/* Layout Styles */
-.container {
+/* Header Styles */
+header {
+    background: var(--color-primary);
+    color: white;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Main Content Layout */
+main {
     max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
 }
 
-.button {
-    background-color: var(--secondary-color);
+/* Section Styles */
+section {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+section:hover {
+    transform: translateY(-5px);
+}
+
+/* Map Section */
+#map {
+    height: 400px;
+    width: 100%;
+    background-color: #e9ecef;
+}
+
+/* Weather Section */
+#weather {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    color: white;
+}
+
+.weather-info {
+    padding: 1rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+}
+
+/* Events Section */
+#events {
+    border-left: 5px solid var(--color-success);
+}
+
+.event-card {
+    background: white;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.join-btn {
+    background: var(--color-success);
     color: white;
     border: none;
-    padding: 10px 20px;
-    cursor: pointer;
+    padding: 0.5rem 1rem;
     border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.button:hover {
-    background-color: darken(var(--secondary-color), 10%);
+.join-btn:hover {
+    background: darken(var(--color-success), 10%);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem;
+    background: var(--color-text);
+    color: white;
+    margin-top: 2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    main {
+        grid-template-columns: 1fr;
+    }
+    
+    .event-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
 }
